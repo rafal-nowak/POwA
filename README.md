@@ -168,9 +168,79 @@ Wzorce projektowe w automatyce:
 
 **Singleton** – np. zarządzanie połączeniem z urządzeniem
 
+```python
+class Singleton:
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Singleton, cls).__new__(cls)
+        return cls._instance
+
+if __name__ == "__main__":
+    # Przykład użycia
+    s1 = Singleton()
+    s2 = Singleton()
+    print(s1 is s2)  # True
+```
+
 **Fabryka** – dynamiczne tworzenie obiektów
 
+```python
+class Sensor:
+    def read(self):
+        pass
+
+class TemperatureSensor(Sensor):
+    def read(self):
+        return "Temperature: 25°C"
+
+class SensorFactory:
+    @staticmethod
+    def create_sensor(sensor_type):
+        if sensor_type == "temperature":
+            return TemperatureSensor()
+        raise ValueError("Unknown sensor type")
+if __name__ == "__main__":
+    # Przykład użyciac
+    sensor = SensorFactory.create_sensor("temperature")
+    print(sensor.read())
+```
+
 **Obserwator** – np. monitorowanie wartości czujnika
+
+```python
+class Observer:
+    def update(self, value):
+        pass
+
+class Sensor:
+    def __init__(self):
+        self.observers = []
+        self.value = None
+
+    def add_observer(self, observer):
+        self.observers.append(observer)
+
+    def notify_observers(self):
+        for observer in self.observers:
+            observer.update(self.value)
+
+    def set_value(self, value):
+        self.value = value
+        self.notify_observers()
+
+class Display(Observer):
+    def update(self, value):
+        print(f"New sensor value: {value}")
+
+if __name__ == "__main__":        
+    # Przykład użycia
+    sensor = Sensor()
+    display = Display()
+    sensor.add_observer(display)
+    sensor.set_value(42)
+```
 
 ## 3. Wprowadzenie do Qt w kontekście automatyki
 
