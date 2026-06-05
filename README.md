@@ -300,3 +300,17 @@ C++ czy Python? Kiedy który język wybrać?
 Jak rozwijać swoje umiejętności?
 
 Praktyczne zadania dla uczestników.
+
+---
+
+## Materiały do pracy własnej studentów
+
+Rozszerzone przewodniki i ćwiczenia do samodzielnej nauki:
+
+- **[`basics/README.md`](basics/README.md)** — mapa pakietu podstaw Pythona wraz z metodą
+  prowadzenia zajęć (odkomentuj fragment → wytłumacz → zakomentuj → następny).
+- **[`oop/README.md`](oop/README.md)** — cztery filary OOP z modelem parowania
+  (abstrakcja ↔ enkapsulacja, dziedziczenie ↔ polimorfizm), powiązane z plikami `oop/*.py`.
+  - [`oop/przewodnik_dziedziczenie_polimorfizm.md`](oop/przewodnik_dziedziczenie_polimorfizm.md) — krok po kroku
+  - [`oop/enkapsulacja_i_pola_w_dziedziczeniu.md`](oop/enkapsulacja_i_pola_w_dziedziczeniu.md) — `_` vs `__`, name mangling, `@property`
+  - [`oop/cwiczenia_oop.md`](oop/cwiczenia_oop.md) — zadania od poziomu 1 do projektu mini

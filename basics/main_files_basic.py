@@ -19,5 +19,5 @@ def write_to_file():
 
 
 if __name__ == '__main__':
-    # read_from_file()
-    write_to_file()
+    read_from_file()
+    # write_to_file()
