@@ -186,3 +186,65 @@ Para 2:  Dziedziczenie  daje  Polimorfizm — ale w Pythonie polimorfizm bywa i 
 - [`przewodnik_dziedziczenie_polimorfizm.md`](przewodnik_dziedziczenie_polimorfizm.md) — przewodnik krok po kroku (od zwykłej klasy do klas abstrakcyjnych)
 - [`enkapsulacja_i_pola_w_dziedziczeniu.md`](enkapsulacja_i_pola_w_dziedziczeniu.md) — `_` vs `__`, name mangling, `@property`
 - [`cwiczenia_oop.md`](cwiczenia_oop.md) — zadania od poziomu 1 do miniprojektu
+
+---
+
+## Słowniczek pojęć
+
+Jedno miejsce odniesienia dla pojęć używanych w materiałach pakietu.
+
+- **Abstrakcja** — filar OOP: decyzja, **co** obiekt udostępnia na zewnątrz (kontrakt,
+  interfejs), z pominięciem szczegółów implementacji. W Pythonie realizowana m.in. przez
+  klasy abstrakcyjne.
+
+- **ABC (Abstract Base Class)** — klasa bazowa z modułu `abc`, po której dziedziczą klasy
+  abstrakcyjne. W połączeniu z `@abstractmethod` uniemożliwia utworzenie obiektu klasy
+  bazowej i wymusza implementację metod w podklasach.
+
+- **`@abstractmethod`** — dekorator oznaczający metodę abstrakcyjną: podklasa **musi** ją
+  zaimplementować, inaczej nie da się utworzyć jej obiektu.
+
+- **Duck typing** — („jeśli coś chodzi i kwacze jak kaczka, to jest kaczką") podejście, w
+  którym liczy się to, czy obiekt **ma daną metodę**, a nie po jakiej klasie dziedziczy.
+  Dzięki temu w Pythonie polimorfizm działa bez wspólnej klasy bazowej (zob. `main_oop3a.py`).
+
+- **Dziedziczenie** — filar OOP: tworzenie klasy potomnej na bazie istniejącej, oparte na
+  relacji „**X jest rodzajem Y**". Pozwala ponownie użyć kodu klasy bazowej.
+
+- **EAFP (Easier to Ask Forgiveness than Permission)** — („łatwiej prosić o wybaczenie niż
+  o pozwolenie") styl, w którym wykonujesz operację od razu i przechwytujesz ewentualny
+  wyjątek (`try/except`). W Pythonie uznawany za bardziej idiomatyczny niż LBYL.
+
+- **Enkapsulacja** — filar OOP: kontrola dostępu do danych obiektu (pola `_protected`,
+  `__private`, `@property`). Technicznie **egzekwuje** abstrakcję.
+
+- **Klasa abstrakcyjna** — klasa pełniąca rolę wzorca/kontraktu, której nie tworzy się
+  bezpośrednio; wymusza implementację wybranych metod w podklasach (zob. `main_oop6.py`).
+
+- **Klasa bazowa / potomna** — klasa bazowa (nadrzędna) dostarcza wspólnych cech; klasa
+  potomna (pochodna) dziedziczy po niej i może je rozszerzać lub nadpisywać.
+
+- **Kompozycja** — budowanie obiektu z innych obiektów, oparte na relacji „**X ma Y**"
+  (samochód *ma* silnik). Alternatywa dla dziedziczenia, gdy relacja nie jest „jest rodzajem".
+
+- **Kontrakt** — zobowiązanie, że klasa dostarczy określony zestaw metod. Klasa abstrakcyjna
+  jest formą kontraktu egzekwowanego przez język.
+
+- **LBYL (Look Before You Leap)** — („sprawdź, zanim skoczysz") styl, w którym najpierw
+  weryfikujesz warunek (np. `if key in d`), a dopiero potem działasz. Przeciwieństwo EAFP.
+
+- **Name mangling** — mechanizm, który zamienia nazwę pola `__pole` na `_NazwaKlasy__pole`.
+  Utrudnia dostęp z zewnątrz i powoduje, że `__pole` w klasie bazowej i potomnej to **dwa
+  różne pola** (zob. [`enkapsulacja_i_pola_w_dziedziczeniu.md`](enkapsulacja_i_pola_w_dziedziczeniu.md)).
+
+- **Nadpisywanie metody (overriding)** — dostarczenie w klasie potomnej własnej wersji
+  metody odziedziczonej z klasy bazowej. Podstawa polimorfizmu podtypowego.
+
+- **Polimorfizm** — filar OOP: traktowanie różnych obiektów w ten sam sposób, o ile mają
+  wspólny interfejs (tę samą metodę). „Ten sam kod → różne zachowanie".
+
+- **`@property`** — dekorator zamieniający metodę w atrybut tylko do odczytu (lub z
+  kontrolowanym zapisem przez setter). Łączy wygodę pola z kontrolą dostępu metody.
+
+- **`super()`** — odwołanie do klasy nadrzędnej; pozwala wywołać jej metodę (np.
+  `super().__init__(...)`) zamiast przepisywać logikę od podstaw.
