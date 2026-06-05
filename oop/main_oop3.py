@@ -14,5 +14,9 @@ class Cat(Animal):
 if __name__ == '__main__':
     dog = Dog()
     cat = Cat()
-    print(dog.speak())  # Output: "Woof!"
-    print(cat.speak())  # Output: "Meow!"
+    # print(dog.speak())  # Output: "Woof!"
+    # print(cat.speak())  # Output: "Meow!"
+
+    animals = [dog, cat]
+    for animal in animals:
+        print(animal.speak())

@@ -18,8 +18,10 @@ class Circle:
 
 if __name__ == '__main__':
     circle1 = Circle(5)
+    circle2 = Circle(10)
     print("Circle 1 Area:", circle1.area())
+    print("Circle 2 Area:", circle2.area())
 
     Circle.set_pi(3.14)  # Modify the class attribute
-    circle2 = Circle(3)
+    print("Circle 1 Area:", circle1.area())
     print("Circle 2 Area:", circle2.area())
