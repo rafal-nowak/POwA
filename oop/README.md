@@ -29,12 +29,12 @@ Te dwa filary opisują **to samo zjawisko z dwóch stron**: chowanie szczegół�
 Różnią się poziomem.
 
 - **Abstrakcja** to decyzja *projektowa*: ustalam, **co** świat zewnętrzny ma widzieć
-  (kontrakt, interfejs, „istota rzeczy”). Czujnik *udostępnia* metodę `read()` — i tyle
-  ma obchodzić użytkownika. Czy w środku jest I²C, Modbus czy losowa liczba — to już
-  nie jego sprawa.
+  (kontrakt, interfejs, „istota rzeczy”). Czujnik *udostępnia* metodę `read()` — i to
+  wszystko, co musi wiedzieć użytkownik. Sposób realizacji wewnątrz (I²C, Modbus czy
+  wartość testowa) pozostaje szczegółem implementacyjnym.
 - **Enkapsulacja** to *mechanizm* w kodzie, który tę decyzję **egzekwuje**: pola
-  prywatne, właściwości, kontrola dostępu. To „zamek w drzwiach”, który pilnuje, żeby
-  nikt nie wszedł tylnym wejściem.
+  prywatne, właściwości, kontrola dostępu. To mechanizm, który uniemożliwia ominięcie
+  przyjętej abstrakcji.
 
 > **Związek:** enkapsulacja jest technicznym **wymuszeniem** abstrakcji.
 > Abstrakcja mówi *„tego nie pokazujemy”*, enkapsulacja sprawia, że *naprawdę się nie da*.
@@ -88,7 +88,7 @@ Poziomy widoczności w Pythonie (uwaga: to **konwencja**, nie twarda blokada jak
 | Zapis | Znaczenie | Egzekwowanie |
 |-------|-----------|--------------|
 | `self.name` | publiczne | brak |
-| `self._status` | chronione — „nie ruszaj z zewnątrz” | tylko umowa społeczna |
+| `self._status` | chronione — „nie używać z zewnątrz” | wyłącznie konwencja |
 | `self.__balance` | prywatne — *name mangling* na `_BankAccount__balance` | utrudnione, nie niemożliwe |
 
 Szczegóły i pułapki pól `_`/`__` w dziedziczeniu → [`enkapsulacja_i_pola_w_dziedziczeniu.md`](enkapsulacja_i_pola_w_dziedziczeniu.md).
@@ -101,7 +101,7 @@ Tu również: jeden filar dostarcza *struktury*, drugi *korzyści*.
 
 - **Dziedziczenie** buduje hierarchię „**jest rodzajem**” i pozwala ponownie użyć kodu
   klasy bazowej. `Dog(Animal)` — pies *jest* zwierzęciem.
-- **Polimorfizm** to **wypłata** z tej struktury: skoro `Dog` i `Cat` mają wspólną metodę
+- **Polimorfizm** to **praktyczna korzyść** z tej struktury: skoro `Dog` i `Cat` mają wspólną metodę
   `speak()`, mogę przejść po liście zwierząt jedną pętlą, nie pytając o typ.
 
 ### Dziedziczenie + polimorfizm „klasycznie”
@@ -154,13 +154,13 @@ for animal in [Dog(), Cat()]:
 > **wspólny interfejs**, nie wspólny przodek. Ta uwaga nie psuje pary, tylko pokazuje,
 > że to polimorfizm jest celem, a dziedziczenie — wygodnym środkiem.
 
-Kiedy `Shape(ABC)` z [`main_oop6.py`](main_oop6.py) spina obie pary naraz: abstrakcja
+Klasa `Shape(ABC)` z [`main_oop6.py`](main_oop6.py) łączy obie pary jednocześnie: abstrakcja
 (kontrakt) + enkapsulacja (ABC wymusza implementację) + dziedziczenie (`Circle(Shape)`)
 + polimorfizm (`for s in shapes: s.area()`).
 
 ---
 
-## Ściąga końcowa
+## Podsumowanie skrótowe
 
 ```
 ABSTRAKCJA      = co pokazać        (kontrakt / interfejs)      → ABC, @abstractmethod
@@ -185,4 +185,4 @@ Para 2:  Dziedziczenie  daje  Polimorfizm — ale w Pythonie polimorfizm bywa i 
 
 - [`przewodnik_dziedziczenie_polimorfizm.md`](przewodnik_dziedziczenie_polimorfizm.md) — przewodnik krok po kroku (od zwykłej klasy do klas abstrakcyjnych)
 - [`enkapsulacja_i_pola_w_dziedziczeniu.md`](enkapsulacja_i_pola_w_dziedziczeniu.md) — `_` vs `__`, name mangling, `@property`
-- [`cwiczenia_oop.md`](cwiczenia_oop.md) — zadania od poziomu 1 do projektu mini
+- [`cwiczenia_oop.md`](cwiczenia_oop.md) — zadania od poziomu 1 do miniprojektu

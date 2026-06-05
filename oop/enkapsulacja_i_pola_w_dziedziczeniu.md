@@ -13,12 +13,12 @@ dziedziczeniu. Ten materiał wyjaśnia, *dlaczego* i *jak* używać `_protected`
 class Sensor:
     def __init__(self):
         self.name = "TC-01"     # 🟢 publiczne   — wolno używać wszędzie
-        self._status = "idle"   # 🟡 chronione   — konwencja: „nie ruszaj z zewnątrz”
+        self._status = "idle"   # 🟡 chronione   — konwencja: „nie używać z zewnątrz”
         self.__offset = 0.5     # 🔴 prywatne    — name mangling
 ```
 
 W Pythonie to **konwencje wspierane przez język**, nie twarde blokady jak w C++/Java.
-`_status` to czysta umowa społeczna. `__offset` Python faktycznie utrudnia — przez
+`_status` to wyłącznie konwencja. `__offset` Python faktycznie utrudnia — przez
 *name mangling* zmienia nazwę na `_Sensor__offset`.
 
 ## Kluczowa pułapka: `__` przy dziedziczeniu
@@ -96,7 +96,7 @@ self._Parent__value = 999           # działa, ale łamie enkapsulację
 
 Technicznie możliwe, ale utrudnia utrzymanie kodu i sygnalizuje, że projekt klasy jest zły.
 
-## Przykład z życia — `BankAccount`
+## Przykład praktyczny — `BankAccount`
 
 Bazowy `BankAccount` (z [`main_oop4.py`](main_oop4.py)) chroni saldo przez `__balance`:
 
@@ -129,7 +129,7 @@ class PremiumAccount(BankAccount):
         self.deposit(1000)                   # przechodzi przez walidację
 ```
 
-## Myślenie „seniorskie” — `@property`
+## Podejście zaawansowane — `@property`
 
 Zamiast pary `get_value`/`set_value` często stosuje się właściwość:
 
@@ -151,7 +151,7 @@ class Sensor:
 Dzięki temu piszemy `sensor.offset` i `sensor.offset = 0.7` jak na zwykłym polu, a mimo
 to zachowujemy kontrolę dostępu (walidacja w setterze).
 
-## TL;DR
+## Najważniejsze w skrócie
 
 - `__value` w `Parent` ≠ `__value` w `Child` — to dwa różne pola (name mangling).
 - Przy `__private` **używaj metod**, nie pól bezpośrednio.

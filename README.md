@@ -313,4 +313,4 @@ Rozszerzone przewodniki i ćwiczenia do samodzielnej nauki:
   (abstrakcja ↔ enkapsulacja, dziedziczenie ↔ polimorfizm), powiązane z plikami `oop/*.py`.
   - [`oop/przewodnik_dziedziczenie_polimorfizm.md`](oop/przewodnik_dziedziczenie_polimorfizm.md) — krok po kroku
   - [`oop/enkapsulacja_i_pola_w_dziedziczeniu.md`](oop/enkapsulacja_i_pola_w_dziedziczeniu.md) — `_` vs `__`, name mangling, `@property`
-  - [`oop/cwiczenia_oop.md`](oop/cwiczenia_oop.md) — zadania od poziomu 1 do projektu mini
+  - [`oop/cwiczenia_oop.md`](oop/cwiczenia_oop.md) — zadania od poziomu 1 do miniprojektu

@@ -175,7 +175,7 @@ dopiero przy wywołaniu. Interfejs rodziny klas jest spójny.
 
 ## 8. `super()` — rozszerzanie, nie przepisywanie
 
-Gdy podklasa chce *dorzucić* coś do logiki rodzica zamiast pisać od zera:
+Gdy podklasa chce *rozszerzyć* logikę rodzica, zamiast pisać ją od podstaw:
 
 ```python
 class Animal:
@@ -199,7 +199,8 @@ Bez `super()` duplikowalibyśmy przypisanie `self.name = name`.
 - ❌ Relacja **„X ma Y”**: samochód *ma* silnik, komputer *ma* procesor. Tu lepsza jest
   **kompozycja** (składanie obiektów), nie dziedziczenie.
 
-Nie dziedzicz „bo się da” — dziedziczenie ma oddawać logiczną relację, nie oszczędzać pisania.
+Nie stosuj dziedziczenia tylko dlatego, że jest to technicznie możliwe — ma ono oddawać
+logiczną relację, a nie skracać pisanie.
 
 ## 10. Pełny przykład — polimorfizm + abstrakcja + `super()`
 
@@ -246,7 +247,7 @@ tworzymy `Employee`), **polimorfizm** (każdy liczy pensję inaczej) i **`super(
 5. **Brak wspólnego interfejsu** — polimorfizm działa najlepiej, gdy klasy mają wspólny
    zestaw metod.
 
-## Szybka ściąga
+## Skrótowe zestawienie
 
 ```python
 class Child(Parent): ...                 # dziedziczenie

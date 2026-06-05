@@ -1,7 +1,7 @@
 # Pakiet `basics` — podstawy Pythona
 
 Materiały wprowadzające do Pythona. Pliki są celowo napisane tak, że **większość kodu
-jest zakomentowana** — to nie pomyłka, lecz metoda prowadzenia zajęć.
+jest zakomentowana** — jest to świadomy zabieg dydaktyczny, a nie pomyłka.
 
 ## Jak korzystać z tych plików (metoda „odkomentuj → wytłumacz → zakomentuj")
 
@@ -25,13 +25,13 @@ zakomentowana.
 | 2 | [`main__1.py`](main__1.py) | Wariant `main.py` | ta sama mapa, ale z odkomentowanym `input()` na starcie — wygodny punkt wejścia do interakcji z użytkownikiem |
 | 3 | [`main_adv.py`](main_adv.py) | Funkcje zaawansowane | argument domyślny (`greeting="Hello"`) → `*args` (dowolna liczba argumentów) → wyrażenie `lambda` |
 | 4 | [`main_dict.py`](main_dict.py) | Słowniki w praktyce | słownik prosty → słownik zagnieżdżony → sprawdzanie klucza (`in`) → `.get()` → `.get(key, default)` → obsługa `KeyError` przez `try/except` |
-| 5 | [`main_exceptions.py`](main_exceptions.py) | Wyjątki | „goły” błąd (`10/0`) → `try/except ZeroDivisionError` → `ValueError` przy `int("abc")` → wiele klauzul `except` → `try/except/finally` przy pliku |
+| 5 | [`main_exceptions.py`](main_exceptions.py) | Wyjątki | nieobsłużony błąd (`10/0`) → `try/except ZeroDivisionError` → `ValueError` przy `int("abc")` → wiele klauzul `except` → `try/except/finally` przy pliku |
 | 6 | [`main_files.py`](main_files.py) | Pliki i CSV | odczyt pliku tekstowego (`read`) → zapis (`write`) → zapis `data.csv` przez `csv.writer` → odczyt przez `csv.reader` |
 | 7 | [`main_files_basic.py`](main_files_basic.py) | Pliki — warianty odczytu | `read()` (całość) → list comprehension `[line.rstrip() ...]` → `readlines()`; osobno `write_to_file()` zapisujący kolejne liczby |
 
 ## Czego dotykają poszczególne tematy
 
-**`main.py` / `main__1.py`** — kompletny przegląd „od zera":
+**`main.py` / `main__1.py`** — kompletny przegląd od podstaw:
 - zmienne i typy podstawowe: `str`, `int`, `bool`, `float`,
 - wejście od użytkownika (`input`) i konkatenacja stringów,
 - instrukcja warunkowa `if/elif/else`,
@@ -55,7 +55,7 @@ zakomentowana.
 - to dobre wprowadzenie do różnicy „prosić o wybaczenie vs pytać o pozwolenie" (EAFP vs LBYL).
 
 **`main_exceptions.py`** — obsługa błędów krok po kroku:
-- co się dzieje **bez** `try` (program się wywala),
+- co się dzieje **bez** `try` (nieobsłużony wyjątek przerywa wykonanie programu),
 - łapanie konkretnego wyjątku (`ZeroDivisionError`, `ValueError`),
 - wiele klauzul `except` + `except Exception as e`,
 - `finally` — sprzątanie (zamknięcie pliku) niezależnie od błędu.

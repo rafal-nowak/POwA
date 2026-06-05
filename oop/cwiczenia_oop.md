@@ -1,6 +1,6 @@
 # Ćwiczenia: dziedziczenie, polimorfizm, abstrakcja, enkapsulacja
 
-Zadania ułożone od najprostszych do projektu mini. Rób je po kolei — każdy poziom
+Zadania ułożone od najprostszych do miniprojektu. Wykonuj je po kolei — każdy poziom
 zakłada poprzedni. Część zadań ma akcent „automatyki” (czujniki, urządzenia), spójny
 z tematyką repo.
 
@@ -78,7 +78,7 @@ obie z `super().__init__(name)`.
 
 **Zadanie 17.** Lista pracowników → pętla wypisująca `name` i wyliczoną pensję (polimorfizm).
 
-## Poziom 7 — projekt mini: system płatności
+## Poziom 7 — miniprojekt: system płatności
 
 **Zadanie 18.** Klasa abstrakcyjna `Payment` z metodą `pay(amount)`. Klasy:
 `CardPayment`, `CashPayment`, `BLIKPayment` — każda wypisuje inny komunikat.
