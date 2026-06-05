@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Wirtualne srodowiska
+.venv/
+venv/
+env/
+
+# IDE (PyCharm) - lokalne pliki, nie wersjonowane
+.idea/pySourceRootDetection.xml
+
+# Dane generowane przez przyklady (basics/)
+basics/example.txt
+basics/example_data.txt
+basics/data.csv
