@@ -51,8 +51,32 @@ zakomentowana.
 **`main_dict.py`** — bezpieczna praca ze słownikami:
 - przekazywanie słownika do funkcji, słowniki zagnieżdżone (`subjects`),
 - trzy sposoby na „czy klucz istnieje": operator `in`, `.get()` (zwraca `None`),
-  `.get(key, default)` oraz `try/except KeyError`,
-- to dobre wprowadzenie do różnicy „prosić o wybaczenie vs pytać o pozwolenie" (EAFP vs LBYL).
+  `.get(key, default)` oraz `try/except KeyError`.
+
+To dobre wprowadzenie do dwóch przeciwstawnych stylów programowania w Pythonie. Oba
+rozwiązują ten sam problem („czy klucz jest w słowniku?"), ale podchodzą do niego odwrotnie:
+
+- **LBYL** — *Look Before You Leap* („sprawdź, zanim skoczysz"). Najpierw **weryfikujesz
+  warunek**, a dopiero potem działasz:
+
+  ```python
+  if "age" in student_info:        # najpierw sprawdzenie
+      print(student_info["age"])   # potem użycie
+  ```
+
+- **EAFP** — *Easier to Ask Forgiveness than Permission* („łatwiej prosić o wybaczenie
+  niż o pozwolenie"). **Działasz od razu**, a ewentualny błąd przechwytujesz wyjątkiem:
+
+  ```python
+  try:
+      print(student_info["age"])   # próbujesz od razu
+  except KeyError:                 # reagujesz dopiero, gdy się nie uda
+      print("Brak klucza 'age'")
+  ```
+
+  EAFP to styl **uznawany w Pythonie za bardziej idiomatyczny** — unika podwójnego
+  sprawdzania (raz w `if`, raz przy dostępie) i jest odporny na sytuację, w której klucz
+  zniknie między sprawdzeniem a użyciem.
 
 **`main_exceptions.py`** — obsługa błędów krok po kroku:
 - co się dzieje **bez** `try` (nieobsłużony wyjątek przerywa wykonanie programu),
